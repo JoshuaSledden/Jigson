@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="IMappingProfile.hpp" />
+    <ClInclude Include="Jigson.hpp" />
+    <ClInclude Include="Mapper.hpp" />
+    <ClInclude Include="MapperFactory.hpp" />
+    <ClInclude Include="MappingProfile.hpp" />
+    <ClInclude Include="examples\simple_object_mapping.hpp">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="examples\nested_object_mapping.hpp">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="examples\object_mapping_with_lists.hpp">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="examples\mapping_with_conditionals.hpp">
+      <Filter>Examples</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{d112e1eb-eab3-48f9-bca7-3e35f18f6676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples">
+      <UniqueIdentifier>{576442e8-6a70-4388-9748-5f53b572bd58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tests\Jigson.Tests.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
