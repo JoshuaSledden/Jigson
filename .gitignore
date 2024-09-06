@@ -17,6 +17,7 @@
 mono_crash.*
 
 # Vcpkg
+vcpkg.json
 vcpkg_installed/
 
 # Build results
