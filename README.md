@@ -40,7 +40,6 @@ Include the Jigson header in your C++ file:
 #include <jigson.hpp>
 ```
 
-
 For detailed usage examples, please refer to the `examples` directory in this repository.## Examples
 
 The `examples` directory contains sample code demonstrating how to use Jigson for various JSON mapping scenarios. These examples include:1. Simple object mapping
@@ -51,16 +50,14 @@ The `examples` directory contains sample code demonstrating how to use Jigson fo
 
 ## Tests
 
-The `tests` directory contains unit tests for Jigson. These tests use the Google Test framework and cover various aspects of the library's functionality.To run the tests:1. Make sure you have Google Test installed
-
-1. Build the test project
-2. Run the resulting test executable
+The `tests` directory contains unit tests for Jigson. These tests use the Google Test framework and cover various aspects of the library's functionality.To run the tests:
+1. Make sure you have Google Test installed
+2. Build the test project
+3. Run the resulting test executable
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://www.perplexity.ai/search/LICENSE) file for details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
