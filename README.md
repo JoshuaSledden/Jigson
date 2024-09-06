@@ -58,9 +58,7 @@ The `tests` directory contains unit tests for Jigson. These tests use the Google
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://www.perplexity.ai/search/LICENSE) file for details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
