@@ -32,5 +32,9 @@
     <ClCompile Include="tests\Jigson.Tests.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
+    <ClCompile Include="LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vcpkg.json" />
   </ItemGroup>
 </Project>
