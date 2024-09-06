@@ -21,9 +21,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="vcpkg.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Tests">
       <UniqueIdentifier>{d112e1eb-eab3-48f9-bca7-3e35f18f6676}</UniqueIdentifier>
     </Filter>
