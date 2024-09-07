@@ -21,6 +21,23 @@ public:
   Address address;
 };
 
+class Singleton {
+public:
+  static Singleton& get_instance() {
+    static Singleton instance;
+    return instance;
+  }
+
+  std::string str;
+  int num;
+
+private:
+  Singleton() = default;
+  ~Singleton() = default;
+  Singleton(const Singleton&) = delete;
+  Singleton& operator=(const Singleton&) = delete;
+};
+
 // Specialization for Address class
 template<>
 void mapping::MapperFactory::configure_profile<Address>(mapping::MappingProfile<Address>& profile) {
@@ -42,12 +59,20 @@ void mapping::MapperFactory::configure_profile<Person>(mapping::MappingProfile<P
     });
 }
 
+// Specialization for Singleton class
+template<>
+void mapping::MapperFactory::configure_profile<Singleton>(mapping::MappingProfile<Singleton>& profile) {
+  profile.add_mapping("str", [](Singleton& a, const json_payload& j) { a.str = j.get<std::string>(); });
+  profile.add_mapping("num", [](Singleton& a, const json_payload& j) { a.num = j.get<int>(); });
+}
+
 // Test fixture
 class JigsonTest : public ::testing::Test {
 protected:
   void SetUp() override {
     mapping::MapperFactory::instance().register_profile<Address>();
     mapping::MapperFactory::instance().register_profile<Person>();
+    mapping::MapperFactory::instance().register_profile<Singleton>();
   }
 };
 
@@ -121,6 +146,19 @@ TEST_F(JigsonTest, GIVEN_JsonObjectWithNestedAddress_WHEN_MapCalled_THEN_ExpectN
   EXPECT_EQ(person.hobbies[1], "swimming");
   EXPECT_EQ(person.address.line1, "123 Main St");
   EXPECT_EQ(person.address.line2, "Apt 4B");
+}
+
+TEST_F(JigsonTest, GIVEN_BasicJsonObject_WHEN_MapToCalled_THEN_ExpectSingletonToBeMapped) {
+  const json_payload json = {
+      {"str", "John Doe"},
+      {"num", 30}
+  };
+
+  auto& mapper = mapping::get_mapper();
+  mapper.map_to<Singleton>(json, Singleton::get_instance());
+
+  EXPECT_EQ(Singleton::get_instance().str, "John Doe");
+  EXPECT_EQ(Singleton::get_instance().num, 30);
 }
 
 class JigsonConditionalTests : public testing::TestWithParam<std::tuple<int, bool>> {

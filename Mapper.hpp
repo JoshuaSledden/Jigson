@@ -47,6 +47,21 @@ namespace jigson {
 
         return object;
       }
+
+      /// <summary>
+      /// Map a JSON payload to a pre-existing instance of type T
+      /// </summary>
+      /// <typeparam name="T">The object type which we are mapping to.</typeparam>
+      /// <param name="json">The raw JSON payload.</param>
+      /// <param name="object">The pre-existing instance of T to which we are mapping.</param>
+      template<typename T>
+      void map_to(const json_payload& json, T& object) {
+        const auto found_profile = profiles_.find(typeid(T).name());
+
+        if (found_profile != profiles_.end()) {
+          found_profile->second->map(json, &object);
+        }
+      }
     };
   }
 }
