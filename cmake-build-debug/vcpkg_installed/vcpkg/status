@@ -1,0 +1,33 @@
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: d68245ce2b2af74608e641ed126544b7484fd763d4e2a0a30c5c07881c3d0806
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 64a4853dc8cb10e64d01cfe6031526917b16c4433dd3b0c49f559a1f2139031b
+Status: install ok installed
+
+Package: fmt
+Version: 11.0.2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 0e1dd0ac13104768b17f87b827b4a9dfb8f433c179464da2474ad57d55425c3c
+Description: {fmt} is an open-source formatting library providing a fast and safe alternative to C stdio and C++ iostreams.
+Status: install ok installed
+
+Package: nlohmann-json
+Version: 3.11.3
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 8cd277941917d3114f69a07813f1eff1c37079fc591e8ca9664a2d325a381674
+Description: JSON for Modern C++
+Status: install ok installed
+

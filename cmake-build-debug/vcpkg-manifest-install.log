@@ -1,0 +1,20 @@
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe
+The following packages will be removed:
+    fmt:x64-windows
+Removing 1/1 fmt:x64-windows
+Elapsed time to handle fmt:x64-windows: 10.9 ms
+Total install time: 11 ms
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+
