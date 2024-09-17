@@ -40,7 +40,7 @@ Include the Jigson header in your C++ file:
 #include <jigson.hpp>
 ```
 
-For detailed usage examples, please refer to the `examples` directory in this repository.## Examples
+For detailed usage examples, please refer to the `Examples` directory in this repository.## Examples
 
 The `examples` directory contains sample code demonstrating how to use Jigson for various JSON mapping scenarios. These examples include:1. Simple object mapping
 
