@@ -18,8 +18,9 @@ public: // Make attributes public for direct access
 // This tells the mapper how to map JSON fields to Person attributes
 template <>
 inline void mapping::MapperFactory::configure_profile<Person>(mapping::MappingProfile<Person>& profile) {
-  profile.add_mapping("name", [](Person& p, const json_payload& j) { p.name = j.get<std::string>(); });
-  profile.add_mapping("age", [](Person& p, const json_payload& j) { p.age = j.get<int>(); });
+  profile
+    .add_mapping("name", &Person::name)
+    .add_mapping("age", &Person::age);
 }
 
 int main() {

@@ -2,5 +2,5 @@
 #include <nlohmann\json.hpp>
 
 namespace jigson {
-  typedef nlohmann::json json_payload;
+    typedef nlohmann::json json_payload;
 }

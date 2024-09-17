@@ -24,19 +24,21 @@ public: // Make attributes public for direct access
 // Specialization for Address class
 template <>
 inline void mapping::MapperFactory::configure_profile<Address>(mapping::MappingProfile<Address>& profile) {
-  profile.add_mapping("street", [](Address& a, const json_payload& j) { a.street = j.get<std::string>(); });
-  profile.add_mapping("city", [](Address& a, const json_payload& j) { a.city = j.get<std::string>(); });
+  profile
+      .add_mapping("street", &Address::street)
+      .add_mapping("city", &Address::city);
 }
 
 // Specialization for Person class with nested Address
 template <>
 inline void mapping::MapperFactory::configure_profile<Person>(mapping::MappingProfile<Person>& profile) {
-  profile.add_mapping("name", [](Person& p, const json_payload& j) { p.name = j.get<std::string>(); });
-  profile.add_mapping("age", [](Person& p, const json_payload& j) { p.age = j.get<int>(); });
-  // Map the nested Address object
-  profile.add_mapping("address", [](Person& p, const json_payload& j) {
-    p.address = mapping::get_mapper().map<Address>(j);
-    });
+  profile
+      .add_mapping("name", &Person::name)
+      .add_mapping("age", &Person::age)
+      .add_mapping("address", &Person::address, [](Person &p, const json_payload &j) {
+                p.address = mapping::get_mapper().map<Address>(j);
+            });
+
 }
 
 // Mock main function
